@@ -1,0 +1,11 @@
+G:\My Drive\Coding11\2048Game\2048Game\bin\Debug\2048Game.exe.config
+G:\My Drive\Coding11\2048Game\2048Game\bin\Debug\2048Game.exe
+G:\My Drive\Coding11\2048Game\2048Game\bin\Debug\2048Game.pdb
+G:\My Drive\Coding11\2048Game\2048Game\obj\Debug\2048Game.csproj.AssemblyReference.cache
+G:\My Drive\Coding11\2048Game\2048Game\obj\Debug\2048Game.csproj.SuggestedBindingRedirects.cache
+G:\My Drive\Coding11\2048Game\2048Game\obj\Debug\_2048Game.Properties.Resources.resources
+G:\My Drive\Coding11\2048Game\2048Game\obj\Debug\2048Game.csproj.GenerateResource.cache
+G:\My Drive\Coding11\2048Game\2048Game\obj\Debug\2048Game.csproj.CoreCompileInputs.cache
+G:\My Drive\Coding11\2048Game\2048Game\obj\Debug\2048Game.exe
+G:\My Drive\Coding11\2048Game\2048Game\obj\Debug\2048Game.pdb
+G:\My Drive\Coding11\2048Game\2048Game\obj\Debug\_2048Game.Form1.resources
