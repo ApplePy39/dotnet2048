@@ -39,7 +39,7 @@ namespace _2048Game
 
         Bitmap squareGraphics = new Bitmap(typeof(Form1), "2048NumList.png");
 
-        List<Point> listOfSquaresLocations = new List<Point>(); 
+        Point[] listOfSquaresLocations = new Point[16]; 
 
         public Form1()
         {
@@ -63,7 +63,7 @@ namespace _2048Game
                 {
                     board[row, col] = "";
                     board[xVal, yVal] = "s2";
-                    listOfSquaresLocations.Add(new Point(xVal, yVal));
+                    listOfSquaresLocations.Append(new Point(xVal, yVal));
                 }
             }
         }
@@ -251,18 +251,22 @@ namespace _2048Game
             {
                 case Keys.W:
                     moveSquares(0, -1);
+                    Console.WriteLine("Moved Up");
                     break;
 
                 case Keys.S:
                     moveSquares(0, 1);
+                    Console.WriteLine("Moved Down");
                     break;
 
                 case Keys.A:
                     moveSquares(-1, 0);
+                    Console.WriteLine("Moved Left");
                     break;
 
                 case Keys.D:
                     moveSquares(1, 0);
+                    Console.WriteLine("Moved Right");
                     break;
 
 
@@ -271,10 +275,12 @@ namespace _2048Game
 
         private void moveSquares(int h, int v)
         {
-            for (int i = 0; i < listOfSquaresLocations.Count; i++)
+            for (int i = 0; i < listOfSquaresLocations.Length; i++)
             {
-                listOfSquaresLocations[i];
-                Console.WriteLine(listOfSquaresLocations[i].X);
+             //   Console.WriteLine(listOfSquaresLocations[i].Y);
+                listOfSquaresLocations[i].X = listOfSquaresLocations[i].X + h;
+                listOfSquaresLocations[i].Y = listOfSquaresLocations[i].Y + v;
+             //   Console.WriteLine(listOfSquaresLocations[i].Y);
             }
         }
 
