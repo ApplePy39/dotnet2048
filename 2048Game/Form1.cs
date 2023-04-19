@@ -39,6 +39,8 @@ namespace _2048Game
 
         Bitmap squareGraphics = new Bitmap(typeof(Form1), "2048NumList.png");
 
+        List<Point> listOfSquaresLocations = new List<Point>(); 
+
         public Form1()
         {
             InitializeComponent();
@@ -46,13 +48,22 @@ namespace _2048Game
 
         private void createBoard()
         {
+            int yVal;
+            int xVal;
+
+            Random firstNumberLocation = new Random();
+            yVal = firstNumberLocation.Next(0, 4);
+            xVal = firstNumberLocation.Next(0, 4);  
+
+            Console.WriteLine(xVal+ " " + yVal);
+
             for (int row = 0; row < gridSize.Height; row++)
             {
                 for (int col = 0; col < gridSize.Width; col++)
                 {
                     board[row, col] = "";
-                    board[2, 2] = "s2";
-                    //SetCell(row, col, (int)GameSquares.blank);
+                    board[xVal, yVal] = "s2";
+                    listOfSquaresLocations.Add(new Point(xVal, yVal));
                 }
             }
         }
@@ -71,8 +82,6 @@ namespace _2048Game
             ClientSize = new Size(cellSize.Width * gridSize.Width, cellSize.Height * gridSize.Height + menuStrip1.Height);
             board = new string[gridSize.Height, gridSize.Width];
             createBoard();
-            board[2, 2] = "s2";
-       //     SetCell(2, 3, "s1");
         }
     
         private void SetCell(int x, int y, string number)
@@ -92,6 +101,34 @@ namespace _2048Game
             if (number.Equals("s16"))
             {
                 gameData[x, y] = GameSquares.square16;
+            }
+            if (number.Equals("s32"))
+            {
+                gameData[x, y] = GameSquares.square32;
+            }
+            if (number.Equals("s64"))
+            {
+                gameData[x, y] = GameSquares.square64;
+            }
+            if (number.Equals("s128"))
+            {
+                gameData[x, y] = GameSquares.square128;
+            }
+            if (number.Equals("s256"))
+            {
+                gameData[x, y] = GameSquares.square256;
+            }
+            if (number.Equals("s512"))
+            {
+                gameData[x, y] = GameSquares.square512;
+            }
+            if (number.Equals("s1024"))
+            {
+                gameData[x, y] = GameSquares.square1024;
+            }
+            if (number.Equals("s2048"))
+            {
+                gameData[x, y] = GameSquares.square2048;
             }
         }
 
@@ -127,9 +164,117 @@ namespace _2048Game
 
                     else if (board[i, j] == "s4")
                     {
-                        
+                        Console.WriteLine("Square4");
+                        imageIndex = 1;
+                        srcRect = new Rectangle(imageIndex * cellSize.Width, 0, cellSize.Width, cellSize.Height);
+                        e.Graphics.DrawImage(squareGraphics, destRect, srcRect, GraphicsUnit.Pixel);
+                    }
+
+                    else if (board[i, j] == "s8")
+                    {
+                        Console.WriteLine("Square8");
+                        imageIndex = 2;
+                        srcRect = new Rectangle(imageIndex * cellSize.Width, 0, cellSize.Width, cellSize.Height);
+                        e.Graphics.DrawImage(squareGraphics, destRect, srcRect, GraphicsUnit.Pixel);
+                    }
+
+                    else if (board[i, j] == "s16")
+                    {
+                        Console.WriteLine("Square16");
+                        imageIndex = 3;
+                        srcRect = new Rectangle(imageIndex * cellSize.Width, 0, cellSize.Width, cellSize.Height);
+                        e.Graphics.DrawImage(squareGraphics, destRect, srcRect, GraphicsUnit.Pixel);
+                    }
+
+                    else if (board[i, j] == "s32")
+                    {
+                        Console.WriteLine("Square32");
+                        imageIndex = 4;
+                        srcRect = new Rectangle(imageIndex * cellSize.Width, 0, cellSize.Width, cellSize.Height);
+                        e.Graphics.DrawImage(squareGraphics, destRect, srcRect, GraphicsUnit.Pixel);
+                    }
+
+                    else if (board[i, j] == "s64")
+                    {
+                        Console.WriteLine("Square64");
+                        imageIndex = 5;
+                        srcRect = new Rectangle(imageIndex * cellSize.Width, 0, cellSize.Width, cellSize.Height);
+                        e.Graphics.DrawImage(squareGraphics, destRect, srcRect, GraphicsUnit.Pixel);
+                    }
+
+                    else if (board[i, j] == "s128")
+                    {
+                        Console.WriteLine("Square128");
+                        imageIndex = 6;
+                        srcRect = new Rectangle(imageIndex * cellSize.Width, 0, cellSize.Width, cellSize.Height);
+                        e.Graphics.DrawImage(squareGraphics, destRect, srcRect, GraphicsUnit.Pixel);
+                    }
+
+                    else if (board[i, j] == "s256")
+                    {
+                        Console.WriteLine("Square256");
+                        imageIndex = 7;
+                        srcRect = new Rectangle(imageIndex * cellSize.Width, 0, cellSize.Width, cellSize.Height);
+                        e.Graphics.DrawImage(squareGraphics, destRect, srcRect, GraphicsUnit.Pixel);
+                    }
+
+                    else if (board[i, j] == "s512")
+                    {
+                        Console.WriteLine("Square512");
+                        imageIndex = 8;
+                        srcRect = new Rectangle(imageIndex * cellSize.Width, 0, cellSize.Width, cellSize.Height);
+                        e.Graphics.DrawImage(squareGraphics, destRect, srcRect, GraphicsUnit.Pixel);
+                    }
+
+                    else if (board[i, j] == "s1024")
+                    {
+                        Console.WriteLine("Square1024");
+                        imageIndex = 9;
+                        srcRect = new Rectangle(imageIndex * cellSize.Width, 0, cellSize.Width, cellSize.Height);
+                        e.Graphics.DrawImage(squareGraphics, destRect, srcRect, GraphicsUnit.Pixel);
+                    }
+
+                    else if (board[i, j] == "s2048")
+                    {
+                        Console.WriteLine("Square2048");
+                        imageIndex = 10;
+                        srcRect = new Rectangle(imageIndex * cellSize.Width, 0, cellSize.Width, cellSize.Height);
+                        e.Graphics.DrawImage(squareGraphics, destRect, srcRect, GraphicsUnit.Pixel);
                     }
                 }
+            }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.W:
+                    moveSquares(0, -1);
+                    break;
+
+                case Keys.S:
+                    moveSquares(0, 1);
+                    break;
+
+                case Keys.A:
+                    moveSquares(-1, 0);
+                    break;
+
+                case Keys.D:
+                    moveSquares(1, 0);
+                    break;
+
+
+            }
+        }
+
+        private void moveSquares(int h, int v)
+        {
+            for (int i = 0; i < listOfSquaresLocations.Count; i++)
+            {
+                listOfSquaresLocations[i];
+                Console.WriteLine(listOfSquaresLocations[i].X);
             }
         }
 
@@ -140,7 +285,7 @@ namespace _2048Game
 
         private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            createBoard();
+            // createBoard();
         }
 
         private void restartToolStripMenuItem_Click(object sender, EventArgs e)
@@ -151,15 +296,14 @@ namespace _2048Game
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
-
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
         }
